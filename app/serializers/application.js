@@ -1,1 +1,1 @@
-export { default } from 'ember-loopback/serializers/application';
+export { default } from 'ember-loopback/serializers/ember-loopback';

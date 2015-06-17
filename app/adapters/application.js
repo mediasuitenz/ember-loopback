@@ -1,1 +1,1 @@
-export { default } from 'ember-loopback/adapters/application';
+export { default } from 'ember-loopback/adapters/ember-loopback';
