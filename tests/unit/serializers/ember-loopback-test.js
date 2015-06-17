@@ -1,8 +1,8 @@
 import { moduleForModel, test } from 'ember-qunit';
 
-moduleForModel('application', 'Unit | Serializer | application', {
+moduleForModel('ember-loopback', 'Unit | Serializer | ember loopback', {
   // Specify the other units that are required for this test.
-  needs: ['serializer:application']
+  needs: ['serializer:ember-loopback']
 });
 
 // Replace this with your real tests.

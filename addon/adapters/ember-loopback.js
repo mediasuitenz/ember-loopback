@@ -2,15 +2,7 @@ import DS from 'ember-data';
 import Ember from 'ember';
 
 export default DS.RESTAdapter.extend({
-  /**
-   * @return {String} The base path at which the api lives on the host.
-   */
-  namespace: Ember.computed(function () {
-    var env = this.container.lookupFactory('config:environment');
-    return env.apiNamespace;
-  }),
-
-  host: 'http://localhost:3000',
+  defaultSerializer: 'ember-loopback/serializers/ember-loopback',
 
   /**
    * Serializes the query params as a json because loopback has some funky crazy syntax
@@ -29,6 +21,7 @@ export default DS.RESTAdapter.extend({
     var hash = this._super(url, type, options);
     console.info('ajaxOptions: ', url, type, options, '-->', hash);
 
+    // TODO: this should also check for filters, etc..., and not just a where clause
     if (type === 'GET' && !!hash.data && !!hash.data.where) {
       hash.url = hash.url + '?filter=' + encodeURIComponent(JSON.stringify(hash.data));
       delete hash.data.where;
