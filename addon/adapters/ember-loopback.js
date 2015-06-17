@@ -41,7 +41,8 @@ export default DS.RESTAdapter.extend({
 
     if (jqXHR && jqXHR.status === 422) {
       // 422 Unprocessable Entity, aka validation error.
-      return new DS.InvalidError(Ember.$.parseJSON(jqXHR.responseText));
+      var errors = Ember.$.parseJSON(jqXHR.responseText);
+      return new DS.InvalidError(errors.error.details.messages);
     } else {
       return error;
     }
