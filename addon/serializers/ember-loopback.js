@@ -4,6 +4,7 @@ import Ember from 'ember';
 export default DS.RESTSerializer.extend({
   /**
    * This doesn't need to return anything... It is meant to mutate the data param
+   * This is a really weird way of doing things ember... What were you thinking?
    * @param hash An empty object
    * @param type
    * @param record
@@ -11,16 +12,13 @@ export default DS.RESTSerializer.extend({
    */
   serializeIntoHash: function (hash, type, record, options) {
     var serialized = this.serialize(record, options);
-    console.log('serializing into hash...', hash, type, record, options, serialized);
-
     Ember.merge(hash, serialized);
   },
 
   extract: function (store, type, payload, id, requestType) {
     var newPayload = {};
-    // DEPRECATED: typekey
+    // I got a warning saying that typeKey was deprecated, but I don't see it anymore
     newPayload[type.typeKey] = payload;
-
     return this._super(store, type, newPayload, id, requestType);
   }
 
