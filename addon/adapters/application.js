@@ -1,11 +1,15 @@
 import DS from 'ember-data';
 import Ember from 'ember';
-import config from '../config/environment';
+// import config from '../config/environment';
 
 export default DS.RESTAdapter.extend({
-  // TODO: This needs to change... we need to get fancy to access config from
-  // an addon.
-  namespace: config.apiNamespace,
+  /**
+   * @return {String} The base path at which the api lives on the host.
+   */
+  namespace: Ember.computed(function () {
+    var env = this.container.lookupFactory('config:environment');
+    return env.apiNamespace;
+  }),
 
   host: 'http://localhost:3000',
 
