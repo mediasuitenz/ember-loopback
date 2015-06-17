@@ -4,22 +4,22 @@ This README outlines the details of collaborating on this Ember addon.
 
 ## Installation
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+\> Be you
+\> Be in your app's root directory
+\> Run `npm install <url-to-this-package> --save` No need to run `ember g ember-loopback` because this doesn't need any setup. You can if you want to though. It won't do anything...
 
-## Running
+Example Usage:
 
-* `ember server`
-* Visit your app at http://localhost:4200.
-
-## Running Tests
-
-* `ember test`
-* `ember test --server`
-
-## Building
-
-* `ember build`
-
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+```
+\\ app/adapters/application.js
+import LoopbackAdapter from 'ember-loopback/adapters/ember-loopback';
+export default LoopbackAdapter.extend({
+  namespace: 'api',
+  host: 'http://localhost:3000',
+});
+```
+ 
+## TODO
+* Add some tests
+* Move the example app to tests/dummy
+* publish to npm
