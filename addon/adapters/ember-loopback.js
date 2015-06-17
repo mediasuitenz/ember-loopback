@@ -19,12 +19,12 @@ export default DS.RESTAdapter.extend({
   ajaxOptions: function (url, type, options) {
 
     var hash = this._super(url, type, options);
-    console.info('ajaxOptions: ', url, type, options, '-->', hash);
+    console.info('ajaxOptions: ', url, type, '-->', hash);
 
-    // TODO: this should also check for filters, etc..., and not just a where clause
-    if (type === 'GET' && !!hash.data && !!hash.data.where) {
+    // Loopback accepts all query params as a serialized json I think...
+    if (type === 'GET' && !!hash.data) {
       hash.url = hash.url + '?filter=' + encodeURIComponent(JSON.stringify(hash.data));
-      delete hash.data.where;
+      delete hash.data;
     }
 
     return hash;
