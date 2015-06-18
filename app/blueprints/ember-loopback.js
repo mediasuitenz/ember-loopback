@@ -1,1 +1,0 @@
-export { default } from 'ember-loopback/blueprints/ember-loopback';
