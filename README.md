@@ -1,25 +1,35 @@
 # Ember-loopback
 
-This README outlines the details of collaborating on this Ember addon.
+This addon enables the use of [Loopback](loopback.io) 
+as an API backend. The addon is compatible with ember-cli version 0.2.7 and Ember Data v???
 
 ## Installation
 
-\> Be you
-\> Be in your app's root directory
-\> Run `npm install <url-to-this-package> --save` No need to run `ember g ember-loopback` because this doesn't need any setup. You can if you want to though. It won't do anything...
+### Via ember-cli
 
-Example Usage:
+* `ember install ember-loopback`
 
-```
-\\ app/adapters/application.js
-import LoopbackAdapter from 'ember-loopback/adapters/ember-loopback';
-export default LoopbackAdapter.extend({
-  namespace: 'api',
-  host: 'http://localhost:3000',
-});
-```
- 
+### Via Github
+
+* `npm install https://github.com/mediasuitenz/ember-loopback.git --save`
+
+## Usage
+
+After installing, you can use the provided blueprints to extend the adapter and serializer.
+
+* `ember g loopback-adapter <adapter-name>`
+* `ember g loopback-serializer <serializer-name>`
+
+The adapter uses the `loopback-serializer` as its defaultSerializer.
+
+
 ## TODO
 * Add some tests
 * Move the example app to tests/dummy
 * publish to npm
+* blueprints should support pod structure
+* better docs
+
+
+## References
+See [Ember Django Adapter](https://github.com/dustinfarris/ember-django-adapter) for inspiration
