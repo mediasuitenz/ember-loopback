@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-sm-4">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Notes</th>
+                <th>Updated At</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{log content}}
+            {{#each item in content}}
+                <tr>
+                    <td>{{item.id}}</td>
+                    <td>{{item.notes}}</td>
+                    <td>{{item.updatedAt}}</td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <div class="col-sm-6">
+      {{outlet}}
+
+    </div>
+
+</div>
