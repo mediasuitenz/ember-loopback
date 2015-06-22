@@ -31,9 +31,9 @@ export default DS.RESTAdapter.extend({
   },
 
   // @override
-  pathForType: function (type) {
-    return Ember.String.underscore(type).pluralize();
-  },
+  //pathForType: function (type) {
+  //  return Ember.String.underscore(type).pluralize();
+  //},
 
   // @override
   ajaxError: function (jqXHR, responseText, errorThrown) {
