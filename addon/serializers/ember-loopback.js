@@ -25,7 +25,6 @@ export default DS.RESTSerializer.extend({
    * @returns {*}
    */
   extract: function (store, primaryTypeClass, payload, id, requestType) {
-    console.log('extract', payload);
     var newPayload = {};
     newPayload[primaryTypeClass.typeKey] = payload;
     return this._super(store, primaryTypeClass, newPayload, id, requestType);
@@ -50,7 +49,6 @@ export default DS.RESTSerializer.extend({
     });
 
     Ember.merge(payload, toSideLoad);
-    console.log('--> payload', payload);
     return this._super(store, primaryTypeClass, payload);
   },
 

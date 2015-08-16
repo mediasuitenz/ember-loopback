@@ -17,10 +17,7 @@ export default DS.RESTAdapter.extend({
    * @returns {object} the modified hash
    */
   ajaxOptions: function (url, type, options) {
-
     var hash = this._super(url, type, options);
-    console.info('ajaxOptions: ', url, type, '-->', hash);
-
     // Loopback accepts all query params as a serialized json I think...
     if (type === 'GET' && !!hash.data) {
       hash.url = hash.url + '?filter=' + encodeURIComponent(JSON.stringify(hash.data));
