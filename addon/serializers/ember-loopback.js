@@ -34,7 +34,8 @@ export default DS.RESTSerializer.extend({
     var toSideLoad = {};
     var nested = [];
     var self = this;
-    payload[primaryTypeClass.typeKey].forEach(function (item) {
+    var items = payload[primaryTypeClass.typeKey] || []
+    items.forEach(function (item) {
       nested = self.extractNested(item);
       for (var key in nested) {
         if (nested.hasOwnProperty(key)) {
